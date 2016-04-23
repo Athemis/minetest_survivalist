@@ -43,6 +43,7 @@ local def = {
     scale = {x=4, y=4},
     animations = {
       idle = {start = 0, stop = 80, speed = 15},
+      swim = {start = 0, stop = 80, speed = 15},
       walk = {start = 81, stop = 170, speed = 24},
       walk_long = {start = 81, stop = 170, speed = 24},
       attack = {start = 205, stop = 220, speed = 24},
@@ -76,7 +77,7 @@ local def = {
     search_enemy = true,
     search_timer = 1.6,
     search_radius = 15,
-    search_type = "player",
+    search_type = "all",
   },
 
   spawning = {
