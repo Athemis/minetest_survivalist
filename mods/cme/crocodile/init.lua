@@ -88,7 +88,7 @@ local def = {
     abm_chance = 60000,
     max_number = 1,
     number = {min = 1, max = 3},
-    time_range = {min = 18500, max = 5100},
+    time_range = {min = 5200, max = 19500},
     light = {min = 0, max = 8},
     height_limit = {min = -200, max = 50},
 

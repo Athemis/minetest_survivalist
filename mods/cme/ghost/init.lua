@@ -78,7 +78,7 @@ local def = {
   spawning = {
     abm_nodes = {
       spawn_on = {"default:gravel", "default:dirt_with_grass", "default:dirt",
-        "group:leaves", "group:sand"},
+        "group:leaves", "group:sand", "default:mossycobble"},
     },
     abm_interval = 40,
     abm_chance = 7300,
@@ -108,3 +108,23 @@ local def = {
 }
 
 creatures.register_mob(def)
+
+-- Place spawners in dungeons
+
+local function place_spawner(tab)
+	local pos = tab[math.random(1, (#tab or 3))]
+	pos.y = pos.y - 1
+	local n = core.get_node_or_nil(pos)
+	if n and n.name ~= "air" then
+		pos.y = pos.y + 1
+		core.set_node(pos, {name = "creatures:ghost_spawner"})
+	end
+end
+core.set_gen_notify("dungeon")
+core.register_on_generated(function(minp, maxp, blockseed)
+	local ntf = core.get_mapgen_object("gennotify")
+	if ntf and ntf.dungeon and #ntf.dungeon > 2 then
+		core.after(3, place_spawner, table.copy(ntf.dungeon))
+	end
+end)
+
