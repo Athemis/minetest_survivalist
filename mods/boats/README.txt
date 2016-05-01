@@ -1,6 +1,10 @@
-Minetest Game mod: boats
-========================
-by PilzAdam
+Minetest 0.4 mod: boats
+=======================
+by PilzAdam, slightly modified for NeXt
+changed by TenPlus1 to add some new features
+ - boat is destroyed when crashing (drops 3 wood)
+ - boat turns faster
+ - used model from ds_rowboat mod
 
 License of source code:
 -----------------------
